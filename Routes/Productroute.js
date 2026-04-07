@@ -12,7 +12,7 @@ ProductRouter.post(
     { name: "image3", maxCount: 1 },
     { name: "image4", maxCount: 1 },
   ]),
-  productUpload
+  uploadJuice
 );
 
 
