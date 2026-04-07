@@ -3,6 +3,7 @@ import "dotenv/config"
 import cookieParser from "cookie-parser"
 import DB from "./Config/DB.js"
 import ProductRouter from "./Routes/Productroute.js"
+import cors from "cors"
 
 const app=express()
 const port = process.env.PORT || 4000
