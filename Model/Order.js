@@ -1,7 +1,11 @@
 import mongoose from "mongoose";
 
 const orderSchema = new mongoose.Schema(
-  {
+  { 
+    clientId:{
+      type: objectId,
+      required:true
+    },
     // CUSTOMER INFO
     name: {
       type: String,
@@ -20,22 +24,19 @@ const orderSchema = new mongoose.Schema(
     },
 
     // PLAN INFO
-    planId: {
-      type: String, // starter, standard, premium
-      required: true,
-    },
+  
 
     planName: {
       type: String,
       required: true,
     },
 
-    price: {
+    planPrice: {
       type: Number,
       required: true,
     },
 
-    period: {
+    planPeriod: {
       type: String, // "/ week"
       default: "/ week",
     },

@@ -6,22 +6,20 @@ import Order from "../Model/Order.js";
 // CREATE ORDER
 export const Create=async (req, res) => {
   try {
-    const { name, phone, location, plan } = req.body;
+    const { name, phone, location, planName, planPeriod, planPrice } = req.body;
+    const clientId=req.userId
 
     const newOrder = new Order({
       name,
       phone,
       location,
-      planId: plan.id,
-      planName: plan.name,
-      price: Number(plan.price.replace(",", "")),
-      period: plan.period,
+      planName, planPeriod, planPrice,clientId
     });
 
     await newOrder.save();
 
     res.status(201).json({
-      message: "Order created successfully",
+      message: "Subscription successfull",
       order: newOrder,
     });
 
