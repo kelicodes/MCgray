@@ -34,3 +34,11 @@ export const Ao=async (req, res) => {
   const orders = await Order.find().sort({ createdAt: -1 });
   res.json(orders);
 };
+
+
+
+export const Mysub=async(req,res)=>{
+  const myId= req.userId
+  const mySub= await Order.findById(myId)
+  res.json({message:"my subs",mySub})
+}
