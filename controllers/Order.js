@@ -39,6 +39,9 @@ export const Ao=async (req, res) => {
 
 export const Mysub=async(req,res)=>{
   const myId= req.userId
-  const mySub= await Order.findById(myId)
+  const mySub= await Order.findById({clientId: myId})
+    if (!mySub || mySub.length === 0) {
+      return res.status(404).json({ message: "No subscriptions found" });
+    }
   res.json({message:"my subs",mySub})
 }
